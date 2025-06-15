@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=65.0.0", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "PyCorewar"
+version = "0.2.0"
+description = "A fast MARS (Memory Array Redcode Simulator) for debugging and benchmarking"
+readme = "README"
+license = {text = "GNU General Public License v2 or later (GPLv2+)"}
+authors = [
+    {name = "Jens Gutzeit", email = "jens@jgutzeit.de"}
+]
+keywords = ["corewar", "redcode", "mars", "simulation", "programming-game"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "License :: OSI Approved :: GNU General Public License (GPL)",
+    "Intended Audience :: Developers",
+    "Operating System :: Unix",
+    "Topic :: Simulation",
+    "Programming Language :: C",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.11"
+dependencies = []
+
+[project.urls]
+Homepage = "http://corewars.jgutzeit.de/pycorewar/index.en.html"
+Download = "http://corewars.jgutzeit.de/pycorewar/download/"
+Repository = "https://github.com/jgutzeit/PyCorewar"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
+    "pylint>=2.15.0",
+    "mypy>=0.991",
+]
+docs = [
+    "sphinx>=5.0.0",
+    "sphinx-rtd-theme>=1.0.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["corewar*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.pylint.messages_control]
+disable = ["C0103", "C0111", "R0903"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

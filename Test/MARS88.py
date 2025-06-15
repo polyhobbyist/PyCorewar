@@ -35,7 +35,7 @@ class TestCase(unittest.TestCase):
         f = open('warriors/88/results/Validate88.log')
         
         # execute program (only the first 100 instructions) and compare
-        for i in xrange(0, 100):
+        for i in range(0, 100):
             mars.step()
             output = '%s   %s' % (str(mars.executedLocation).zfill(5),
                                   mars.executedInstruction)
@@ -59,7 +59,7 @@ class TestCase(unittest.TestCase):
         f = open('warriors/88/results/MaxProcess.log')
 
         # execute program (only the first 500 instructions) and compare
-        for i in xrange(0, 499):
+        for i in range(0, 499):
             mars.step()
             output = '%s   %s' % (str(mars.executedLocation).zfill(5),
                                   mars.executedInstruction)

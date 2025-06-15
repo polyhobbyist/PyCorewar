@@ -39,16 +39,19 @@ CLASSIFIERS = ['Development Status :: 3 - Alpha',
                'Operating System :: Unix',
                'Topic :: Simulation',
                'Programming Language :: C',
-               'Programming Language :: Python']
-PLATFORMS = 'Python 2.6 and later.'
+               'Programming Language :: Python',
+               'Programming Language :: Python :: 3',
+               'Programming Language :: Python :: 3.11',
+               'Programming Language :: Python :: 3.12']
+PLATFORMS = 'Python 3.11 and later.'
 
 # FIXME: extra compiler arguments
 # EXTRA_COMPILE_ARGS = ['-O6', '-funroll-all-loops']
 EXTRA_COMPILE_ARGS = []
 
 # Check Python version
-if sys.version_info < (2, 6):
-    raise RuntimeError('PyCorewar requires at least Python 2.6 to build.')
+if sys.version_info < (3, 11):
+    raise RuntimeError('PyCorewar requires at least Python 3.11 to build.')
 
 core.setup(
     name=NAME,

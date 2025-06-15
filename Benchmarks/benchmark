@@ -342,10 +342,10 @@ def benchmark_pycorewar_94nop(rounds):
     Only 100, 1000, 2500, 5000 and 10000 are valid numbers for rounds."""
 
     if rounds not in (100, 1000, 2500, 5000, 10000):
-        raise ValueError, 'Invalid number of rounds: %d' % rounds
+        raise ValueError, 'Invalid number of rounds: %d') % rounds
 
     num_fights = len(FIGHTS_94_NOP)
-    print '--> Benchmarking PyCorewar (\'94nop, %d fights, %d rounds)\n' %\
+    print('--> Benchmarking PyCorewar (\'94nop, %d fights, %d rounds)\n') %\
           (num_fights, rounds)
 
     mars = Corewar.Benchmarking.MARS_94nop()
@@ -379,7 +379,7 @@ def benchmark_pycorewar_94nop(rounds):
             w1 = parser.parse_file(w1_src)
             w2 = parser.parse_file(w2_src)
         except:
-            print 'Could not parse warriors (%s, %s).' % (data[0], data[1])
+            print('Could not parse warriors (%s, %s).') % (data[0], data[1])
             #sys.exit(1)
             continue
 
@@ -391,23 +391,23 @@ def benchmark_pycorewar_94nop(rounds):
 
         # Check result.
         if not results[0] == result:
-            print 'Got invalid result for %s vs. %s.' % (w1.name, w2.name)
-            print 'Expected: ', result
-            print 'Got     : ', results[0]
+            print('Got invalid result for %s vs. %s.') % (w1.name, w2.name)
+            print('Expected: ', result
+            print('Got     : ', results[0]
             #sys.exit(1)
 
         # Print speed for current fight.
-        tmp = '%s vs. %s' % (w1.name, w2.name)
+        tmp = '%s vs. %s') % (w1.name, w2.name)
         while len(tmp) < 45:
             tmp += ' '
-        print '%s: %8.3f MIPS' % (tmp, speed)
+        print('%s: %8.3f MIPS') % (tmp, speed)
 
         sum += speed
 
     # Print average speed.
     sum /= num_fights
-    print '\nAverage speed of PyCorewar, \'94nop           : %8.3f MIPS' % sum
-    print '\n'
+    print('\nAverage speed of PyCorewar, \'94nop           : %8.3f MIPS') % sum
+    print('\n'
 
 def benchmark_pmars_94nop(rounds, path):
     """Run the benchmark for '94nop settings with the given number of rounds.
@@ -415,10 +415,10 @@ def benchmark_pmars_94nop(rounds, path):
     pMARS as executable."""
 
     if rounds not in (100, 1000, 2500, 5000, 10000):
-        raise ValueError, 'Invalid number of rounds: %d' % rounds
+        raise ValueError, 'Invalid number of rounds: %d') % rounds
 
     num_fights = len(FIGHTS_94_NOP)
-    print '--> Benchmarking pMARS (\'94nop, %d fights, %d rounds)\n' %\
+    print('--> Benchmarking pMARS (\'94nop, %d fights, %d rounds)\n') %\
           (num_fights, rounds)
 
     parser = Corewar.Parser(standard=Corewar.STANDARD_94_NOP)
@@ -451,12 +451,12 @@ def benchmark_pmars_94nop(rounds, path):
             w1 = parser.parse_file(w1_src)
             w2 = parser.parse_file(w2_src)
         except:
-            print 'Could not parse warriors (%s, %s).' % (data[0], data[1])
+            print('Could not parse warriors (%s, %s).') % (data[0], data[1])
             #sys.exit(1)
             continue
 
         # Build command line.
-        cmd_line = '%s -b -r %d -F %d %s %s' % (path, rounds, seed, w1_src,\
+        cmd_line = '%s -b -r %d -F %d %s %s') % (path, rounds, seed, w1_src,\
                                                 w2_src)
 
         # Run fights.
@@ -477,23 +477,23 @@ def benchmark_pmars_94nop(rounds, path):
 
         # Check result.
         if not pmars_result == result:
-            print 'Got invalid result for %s vs. %s.' % (w1.name, w2.name)
-            print 'Expected: ', result
-            print 'Got     : ', pmars_result
+            print('Got invalid result for %s vs. %s.') % (w1.name, w2.name)
+            print('Expected: ', result
+            print('Got     : ', pmars_result
             #sys.exit(1)
 
         # Print speed for current fight.
-        tmp = '%s vs. %s' % (w1.name, w2.name)
+        tmp = '%s vs. %s') % (w1.name, w2.name)
         while len(tmp) < 45:
             tmp += ' '
-        print '%s: %8.3f MIPS' % (tmp, speed)
+        print('%s: %8.3f MIPS') % (tmp, speed)
 
         sum += speed
 
     # Print average speed.
     sum /= num_fights
-    print '\nAverage speed of pMARS, \'94nop               : %8.3f MIPS' % sum
-    print '\n'
+    print('\nAverage speed of pMARS, \'94nop               : %8.3f MIPS') % sum
+    print('\n'
 
 def benchmark_exmars_94nop(rounds, path):
     """Run the benchmark for '94nop settings with the given number of rounds.
@@ -501,10 +501,10 @@ def benchmark_exmars_94nop(rounds, path):
     exmars as executable."""
 
     if rounds not in (100, 1000, 2500, 5000, 10000):
-        raise ValueError, 'Invalid number of rounds: %d' % rounds
+        raise ValueError, 'Invalid number of rounds: %d') % rounds
 
     num_fights = len(FIGHTS_94_NOP)
-    print '--> Benchmarking exmars (\'94nop, %d fights, %d rounds)\n' %\
+    print('--> Benchmarking exmars (\'94nop, %d fights, %d rounds)\n') %\
           (num_fights, rounds)
 
     parser = Corewar.Parser(standard=Corewar.STANDARD_94_NOP)
@@ -537,12 +537,12 @@ def benchmark_exmars_94nop(rounds, path):
             w1 = parser.parse_file(w1_src)
             w2 = parser.parse_file(w2_src)
         except:
-            print 'Could not parse warriors (%s, %s).' % (data[0], data[1])
+            print('Could not parse warriors (%s, %s).') % (data[0], data[1])
             #sys.exit(1)
             continue
 
         # Build command line.
-        cmd_line = '%s -b -r %d -F %d %s %s' % (path, rounds, seed, w1_src,\
+        cmd_line = '%s -b -r %d -F %d %s %s') % (path, rounds, seed, w1_src,\
                                                 w2_src)
 
         # Run fights.
@@ -563,23 +563,23 @@ def benchmark_exmars_94nop(rounds, path):
 
         # Check result.
         if not exmars_result == result:
-            print 'Got invalid result for %s vs. %s.' % (w1.name, w2.name)
-            print 'Expected: ', result
-            print 'Got     : ', exmars_result
+            print('Got invalid result for %s vs. %s.') % (w1.name, w2.name)
+            print('Expected: ', result
+            print('Got     : ', exmars_result
             #sys.exit(1)
 
         # Print speed for current fight.
-        tmp = '%s vs. %s' % (w1.name, w2.name)
+        tmp = '%s vs. %s') % (w1.name, w2.name)
         while len(tmp) < 45:
             tmp += ' '
-        print '%s: %8.3f MIPS' % (tmp, speed)
+        print('%s: %8.3f MIPS') % (tmp, speed)
 
         sum += speed
 
     # Print average speed.
     sum /= num_fights
-    print '\nAverage speed of exmars, \'94nop              : %8.3f MIPS' % sum
-    print '\n'
+    print('\nAverage speed of exmars, \'94nop              : %8.3f MIPS') % sum
+    print('\n'
 
 def benchmark_exhaust_94nop(rounds, path):
     """Run the benchmark for '94nop settings with the given number of rounds.
@@ -587,10 +587,10 @@ def benchmark_exhaust_94nop(rounds, path):
     exhaust as executable."""
 
     if rounds not in (100, 1000, 2500, 5000, 10000):
-        raise ValueError, 'Invalid number of rounds: %d' % rounds
+        raise ValueError, 'Invalid number of rounds: %d') % rounds
 
     num_fights = len(FIGHTS_94_NOP)
-    print '--> Benchmarking exhaust (\'94nop, %d fights, %d rounds)\n' %\
+    print('--> Benchmarking exhaust (\'94nop, %d fights, %d rounds)\n') %\
           (num_fights, rounds)
 
     parser = Corewar.Parser(standard=Corewar.STANDARD_94_NOP)
@@ -623,12 +623,12 @@ def benchmark_exhaust_94nop(rounds, path):
             w1 = parser.parse_file('../warriors/Koenigstuhl/94nop/' + data[0])
             w2 = parser.parse_file('../warriors/Koenigstuhl/94nop/' + data[1])
         except:
-            print 'Could not parse warriors (%s, %s).' % (data[0], data[1])
+            print('Could not parse warriors (%s, %s).') % (data[0], data[1])
             #sys.exit(1)
             continue
 
         # Build command line.
-        cmd_line  = '%s -b -r %d -F %d %s %s' % (path, rounds, seed, w1_src,\
+        cmd_line  = '%s -b -r %d -F %d %s %s') % (path, rounds, seed, w1_src,\
                                                  w2_src)
 
         # Run fights.
@@ -649,23 +649,23 @@ def benchmark_exhaust_94nop(rounds, path):
 
         # Check result.
         if not exhaust_result == result:
-            print 'Got invalid result for %s vs. %s.' % (w1.name, w2.name)
-            print 'Expected: ', result
-            print 'Got     : ', exhaust_result
+            print('Got invalid result for %s vs. %s.') % (w1.name, w2.name)
+            print('Expected: ', result
+            print('Got     : ', exhaust_result
             #sys.exit(1)
 
         # Print speed for current fight.
-        tmp = '%s vs. %s' % (w1.name, w2.name)
+        tmp = '%s vs. %s') % (w1.name, w2.name)
         while len(tmp) < 45:
             tmp += ' '
-        print '%s: %8.3f MIPS' % (tmp, speed)
+        print('%s: %8.3f MIPS') % (tmp, speed)
 
         sum += speed
 
     # Print average speed.
     sum /= num_fights
-    print '\nAverage speed of exhaust, \'94nop             : %8.3f MIPS' % sum
-    print '\n'
+    print('\nAverage speed of exhaust, \'94nop             : %8.3f MIPS') % sum
+    print('\n'
 
 def benchmark_exhaust_ma_94nop(rounds, path):
     """Run the benchmark for '94nop settings with the given number of rounds.
@@ -673,10 +673,10 @@ def benchmark_exhaust_ma_94nop(rounds, path):
     exhaust-ma as executable."""
 
     if rounds not in (100, 1000, 2500, 5000, 10000):
-        raise ValueError, 'Invalid number of rounds: %d' % rounds
+        raise ValueError, 'Invalid number of rounds: %d') % rounds
 
     num_fights = len(FIGHTS_94_NOP)
-    print '--> Benchmarking exhaust-ma (\'94nop, %d fights, %d rounds)\n' %\
+    print('--> Benchmarking exhaust-ma (\'94nop, %d fights, %d rounds)\n') %\
           (num_fights, rounds)
 
     parser = Corewar.Parser(standard=Corewar.STANDARD_94_NOP)
@@ -709,12 +709,12 @@ def benchmark_exhaust_ma_94nop(rounds, path):
             w1 = parser.parse_file('../warriors/Koenigstuhl/94nop/' + data[0])
             w2 = parser.parse_file('../warriors/Koenigstuhl/94nop/' + data[1])
         except:
-            print 'Could not parse warriors (%s, %s).' % (data[0], data[1])
+            print('Could not parse warriors (%s, %s).') % (data[0], data[1])
             #sys.exit(1)
             continue
 
         # Build command line.
-        cmd_line  = '%s -b -r %d -F %d %s %s' % (path, rounds, seed, w1_src,\
+        cmd_line  = '%s -b -r %d -F %d %s %s') % (path, rounds, seed, w1_src,\
                                                  w2_src)
 
         # Run fights.
@@ -735,27 +735,27 @@ def benchmark_exhaust_ma_94nop(rounds, path):
 
         # Check result.
         if not exhaust_result == result:
-            print 'Got invalid result for %s vs. %s.' % (w1.name, w2.name)
-            print 'Expected: ', result
-            print 'Got     : ', exhaust_result
+            print('Got invalid result for %s vs. %s.') % (w1.name, w2.name)
+            print('Expected: ', result
+            print('Got     : ', exhaust_result
             #sys.exit(1)
 
         # Print speed for current fight.
-        tmp = '%s vs. %s' % (w1.name, w2.name)
+        tmp = '%s vs. %s') % (w1.name, w2.name)
         while len(tmp) < 45:
             tmp += ' '
-        print '%s: %8.3f MIPS' % (tmp, speed)
+        print('%s: %8.3f MIPS') % (tmp, speed)
 
         sum += speed
 
     # Print average speed.
     sum /= num_fights
-    print '\nAverage speed of exhaust-ma, \'94nop           : %8.3f MIPS' % sum
-    print '\n'
+    print('\nAverage speed of exhaust-ma, \'94nop           : %8.3f MIPS') % sum
+    print('\n'
 
 if __name__ == '__main__':
-    print 'Bogus Benchmark for PyCorewar, version %s (%s)' % (VERSION, DATE)
-    print '(use command line to change benchmark parameters)\n'
+    print('Bogus Benchmark for PyCorewar, version %s (%s)') % (VERSION, DATE)
+    print('(use command line to change benchmark parameters)\n'
 
     # Parse command line.
     parser = optparse.OptionParser()
@@ -777,21 +777,21 @@ if __name__ == '__main__':
 
     (options, args) = parser.parse_args()
     if options.rounds not in (100, 1000, 2500, 5000, 10000):
-        print 'Invalid number of rounds: %d' % option.rounds
-        print 'Only 100, 1000, 2500, 5000 or 10000 are allowed!'
+        print('Invalid number of rounds: %d') % option.rounds
+        print('Only 100, 1000, 2500, 5000 or 10000 are allowed!'
         sys.exit(1)
     if options.benchmark not in ('94nop',):
-        print 'Invalid benchmark: %s' % options.benchmark
-        print 'Only \'94nop\' is supported at the moment.'
+        print('Invalid benchmark: %s') % options.benchmark
+        print('Only \'94nop\' is supported at the moment.'
         sys.exit(1)
     if options.mars not in ('pycorewar', 'pmars', 'exmars', 'exhaust',\
                             'exhaust-ma'):
-        print 'Invalid MARS: %s' % options.mars
-        print 'Only \'pycorewar\', \'pmars\', \'exmars\', \'exhaust\' and '\
+        print('Invalid MARS: %s') % options.mars
+        print('Only \'pycorewar\', \'pmars\', \'exmars\', \'exhaust\' and '\
               '\'exhaust-ma\' are supported at the moment.'
         sys.exit(1)
     if not options.mars == 'pycorewar' and options.path == None:
-        print 'Please specify path to executable for MARS other than '\
+        print('Please specify path to executable for MARS other than '\
               'PyCorewar'
         sys.exit(1)
 
@@ -808,8 +808,8 @@ if __name__ == '__main__':
         elif options.mars == 'exhaust-ma':
             benchmark_exhaust_ma_94nop(options.rounds, options.path)
         else:
-            print 'This shouldn\'t happen. Blame the program\'s author!'
+            print('This shouldn\'t happen. Blame the program\'s author!'
             sys.exit(1)
     else:
-        print 'This shouldn\'t happen. Blame the program\'s author!'
+        print('This shouldn\'t happen. Blame the program\'s author!'
         sys.exit(1)

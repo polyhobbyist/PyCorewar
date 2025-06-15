@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  pycorewar-dev:
+    image: mcr.microsoft.com/devcontainers/universal:2
+    volumes:
+      - ../..:/workspaces:cached
+    command: sleep infinity
+    environment:
+      - PYTHONPATH=/workspaces/PyCorewar:/workspaces/PyCorewar/src
+    working_dir: /workspaces/PyCorewar

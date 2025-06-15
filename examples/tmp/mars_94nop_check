@@ -896,7 +896,7 @@ if __name__ == '__main__':
     parser = Corewar.Parser(standard=Corewar.STANDARD_94_NOP)
     mars = Corewar.Benchmarking.MARS_94nop()
 
-    for i in xrange(len(RESULTS)):
+    for i in range(len(RESULTS)):
         (fname, seed, expected_result) = RESULTS[i]
 
         warrior = parser.parse_file('warriors/Koenigstuhl/94nop/' + fname)

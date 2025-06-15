@@ -492,7 +492,7 @@ class Parser(object):
         if last < 0:
            last = len(line)
         aexpr = ''
-        for i in xrange(pos, last):
+        for i in range(pos, last):
             if line[i] == ' ':
                 continue
             if line[i].lower() in 'abcdefghijklmnopqrstuvwxyz_0123456789'\
@@ -516,7 +516,7 @@ class Parser(object):
 
         # Handle (possible) B-field
         bexpr = ''
-        for i in xrange(pos, len(line)):
+        for i in range(pos, len(line)):
             if line[i] == ' ':
                 continue
             if line[i].lower() in 'abcdefghijklmnopqrstuvwxyz_0123456789'\
@@ -549,7 +549,7 @@ class Parser(object):
                                                   (pseudoopcode, lineNum)
                 pos += 1
                 startExpr = ''
-                for i in xrange(pos, len(line)):
+                for i in range(pos, len(line)):
                     if line[i] == ' ':
                         continue
                     if line[i].lower() in 'abcdefghijklmnopqrstuvwxyz_'\
@@ -572,7 +572,7 @@ class Parser(object):
 
             # Get EQU expression.
             equExpr = ''
-            for i in xrange(pos, len(line)):
+            for i in range(pos, len(line)):
                 if line[i] == ' ':
                     continue
                 if line[i].lower() in 'abcdefghijklmnopqrstuvwxyz_'\
@@ -648,7 +648,7 @@ class Calculator(object):
             # Find first deepest nested pair of parentheses.
             pos1 = 0
             pos2 = len(tokens) - 1
-            for pos in xrange(len(tokens)):
+            for pos in range(len(tokens)):
                 if tokens[pos] == '(':
                     pos1 = pos
                 elif tokens[pos] == ')':
@@ -660,7 +660,7 @@ class Calculator(object):
                 # Find first operator with highest precedence.
                 op_pos = pos2
                 op_prec = -1
-                for pos in xrange(pos1 + 1, pos2):
+                for pos in range(pos1 + 1, pos2):
                     if self.__is_op(tokens[pos]):
                         # Check if it is unary operator.
                         if tokens[pos-1] == '(' or self.__is_op(tokens[pos-1]):

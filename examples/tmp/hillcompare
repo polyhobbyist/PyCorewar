@@ -39,10 +39,10 @@ if __name__ == '__main__':
         warriors.append(w)
     warriors.sort()
 
-    for i in xrange(len(warriors)):
+    for i in range(len(warriors)):
         w1 = warriors[i]
         w1src = '../../evolution/88/simplified/' + w1
-        for j in xrange(i,len(warriors)):
+        for j in range(i,len(warriors)):
             w2 = warriors[j]
             w2src = '../../evolution/88/simplified/' + w2
             print '(%s - %s)' % (w1, w2)

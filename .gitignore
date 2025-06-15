@@ -3,3 +3,6 @@ build/
 *.swp
 *.pyc
 *.pyo
+**/*.so
+**/*.egg
+**/*.egg-info

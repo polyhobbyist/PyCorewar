@@ -62,10 +62,10 @@ if __name__ == '__main__':
     parser_88 = Corewar.Parser(standard=Corewar.STANDARD_88)
     parser_94nop = Corewar.Parser(standard=Corewar.STANDARD_94_NOP)
 
-    print 'Bogus Benchmark for PyCorewar %s\n' % Corewar.version
+    print('Bogus Benchmark for PyCorewar %s\n') % Corewar.version
 
-    print 'Corewar.Benchmarking.MARS_94nop'
-    print '===============================\n'
+    print('Corewar.Benchmarking.MARS_94nop'
+    print('===============================\n'
     sum = 0.0
     for fight in fights94nop:
         w1_src = 'warriors/Koenigstuhl/94nop/' + fight[0]
@@ -82,19 +82,19 @@ if __name__ == '__main__':
         diffTime = time.time() - startTime
         speed = fight[-1]/diffTime/1000000
 
-        tmp = '%s vs. %s' % (w1.name, w2.name)
+        tmp = '%s vs. %s') % (w1.name, w2.name)
         while len(tmp) < 45:
             tmp += ' '
-        print '%s: %8.3f MIPS' % (tmp, speed)
+        print('%s: %8.3f MIPS') % (tmp, speed)
 
         sum += speed
 
     sum /= len(fights94nop)
-    print '\nAverage speed                                : %8.3f MIPS' % sum
-    print '\n'
+    print('\nAverage speed                                : %8.3f MIPS') % sum
+    print('\n'
     sys.exit(1)  
-    print 'Corewar.Benchmarking.MARS_88'
-    print '============================\n'
+    print('Corewar.Benchmarking.MARS_88'
+    print('============================\n'
     sum = 0.0
     for fight in fights88:
         w1_src = 'warriors/88/simplified/' + fight[0]
@@ -111,12 +111,12 @@ if __name__ == '__main__':
         diffTime = time.time() - startTime
         speed = fight[-1]/diffTime/1000000
 
-        tmp = '%s vs. %s' % (w1.name, w2.name)
+        tmp = '%s vs. %s') % (w1.name, w2.name)
         while len(tmp) < 45:
             tmp += ' '
-        print '%s: %8.3f MIPS' % (tmp, speed)
+        print('%s: %8.3f MIPS') % (tmp, speed)
 
         sum += speed
 
     sum /= len(fights88)
-    print '\nAverage speed                                : %8.3f MIPS' % sum
+    print('\nAverage speed                                : %8.3f MIPS') % sum

@@ -1,4 +1,4 @@
-To compile PyCorewar you need Python (>= 2.3.0 or higher) and a C-compiler.
+To compile PyCorewar you need Python (>= 3.11.0 or higher) and a C-compiler.
 To install it, run:
 
       python setup.py install
