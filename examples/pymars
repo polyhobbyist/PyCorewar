@@ -92,7 +92,7 @@ if __name__ == '__main__':
         print('The %d do not fit into the core.' % len(args))
         sys.exit(1)
     if options.nopspace:
-        if not options.pspacesize is None:
+        if options.pspacesize is not None:
             print('Set the size of P-Space together with disallowing the '
                   'use of P-Space does not make sense.')
             sys.exit(1)

@@ -65,9 +65,38 @@ if [ -z "$(git config --global user.name)" ]; then
     git config --global user.email "$git_email"
 fi
 
-echo "✅ Development environment setup complete!"
-echo ""
-echo "To get started:"
-echo "1. Try running: python3 -c 'import corewar; print(\"PyCorewar imported successfully!\")'"
-echo "2. Run tests: python3 -m pytest Test/ (if pytest is configured)"
-echo "3. Check the examples/ directory for usage examples"
+# Install and build pMARS with 2x scaling for high-res displays
+echo "Installing and building pMARS..."
+if [ ! -d "pMARS" ]; then
+    echo "Downloading pMARS..."
+    wget -q http://www.koth.org/pmars/pmars-0.9.4.zip
+    unzip -q pmars-0.9.4.zip
+    mv pmars-0.9.4 pMARS
+    
+    # Apply 2x scaling patch for better visibility on high-resolution monitors
+    echo "Applying 2x scaling patch to pMARS X Window display..."
+    if [ -f "xwindisp_2x_scaling.patch" ]; then
+        cd pMARS/src
+        patch -p3 < ../../xwindisp_2x_scaling.patch
+        if [ $? -eq 0 ]; then
+            echo "✅ X Window scaling patch applied successfully!"
+        else
+            echo "❌ Failed to apply scaling patch. Building with original display size."
+        fi
+        cd ../..
+    else
+        echo "⚠️  Scaling patch file not found. Building with original display size."
+    fi
+fi
+
+# Build pMARS
+echo "Building pMARS..."
+cd pMARS/src
+make clean
+make
+if [ $? -eq 0 ]; then
+    echo "✅ pMARS built successfully with 2x scaled display!"
+else
+    echo "❌ pMARS build failed. Check the error messages above."
+fi
+cd ../..

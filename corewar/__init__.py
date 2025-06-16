@@ -1272,8 +1272,7 @@ class Calculator(object):
                         tokens.append('||')
                         pos += 2
                     else:
-                        raise EvalError('Unknown operator at position %d'\
-                                         % pos)
+                        raise EvalError('Unknown operator at position %d' % pos)
                 else:
                     raise EvalError('Unknown operator at position %d' % pos)
             elif c.isspace():

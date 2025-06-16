@@ -1,0 +1,97 @@
+--- temp_original/pmars-0.9.4/src/xwindisp.c	2000-09-28 11:03:56.000000000 +0000
++++ pMARS/src/xwindisp.c	2025-06-16 17:58:33.940988400 +0000
+@@ -43,8 +43,8 @@
+ #include <X11/keysym.h>
+ #include <X11/cursorfont.h>
+ 
+-#define MIN_WIDTH                320        /* minimum width of the window */
+-#define MIN_HEIGHT                200        /* minimum height of the window */
++#define MIN_WIDTH                640        /* minimum width (2x scaling) */
++#define MIN_HEIGHT                400        /* minimum height (2x scaling) */
+ 
+ #define MAXLENGTH                160        /* maximum output string length */
+ #define MAXSTR                        80        /* maximum input string
+@@ -405,8 +405,8 @@
+ static void
+ graphio_init()
+ {
+-  size = 4;                        /* Size of a given location, feel free to
+-                                 * make it bigger */
++  size = 8;                        /* Size of a given location, scaled 2x for
++                                 * better visibility on high-res monitors */
+   do {
+     --size;                        /* decrease the size to fit */
+     verticalSize = (xDim - 2 * leftUpperX) / (size + 1);
+@@ -1399,10 +1399,10 @@
+ {
+   setcolor(colors[W - warrior]);
+   XDrawRectangle(display, xwindow, colorGC,
+-                 xkoord(addr), ykoord(addr), 1, 1);
++                 xkoord(addr), ykoord(addr), 2, 2);  /* 2x scaling */
+   if (!doesBs)
+     XDrawRectangle(display, bsPixmap, colorGC,
+-                   xkoord(addr), ykoord(addr), 1, 1);
++                   xkoord(addr), ykoord(addr), 2, 2);  /* 2x scaling */
+ }
+ 
+ /*
+@@ -1428,10 +1428,10 @@
+   if (displayLevel > 0) {
+     setcolor(datcolors[warNum]);
+     XFillRectangle(display, xwindow, colorGC,
+-                   xkoord(addr), ykoord(addr), 2, 2);
++                   xkoord(addr), ykoord(addr), 4, 4);  /* 2x scaling */
+     if (!doesBs)
+       XFillRectangle(display, bsPixmap, colorGC,
+-                     xkoord(addr), ykoord(addr), 2, 2);
++                     xkoord(addr), ykoord(addr), 4, 4);  /* 2x scaling */
+   }
+   XDrawPoint(display, xwindow, clearGC, tasks / processRatio, splY[warNum]);
+   if (!doesBs)
+@@ -1453,32 +1453,32 @@
+ 
+   switch (displayMode) {
+   case 1:
+-    xsize = 640;
+-    ysize = 480;
++    xsize = 1280;    /* 2x scaling */
++    ysize = 960;
+     break;
+   case 2:
+-    xsize = 800;
+-    ysize = 600;
++    xsize = 1600;    /* 2x scaling */
++    ysize = 1200;
+     break;
+   case 3:
+-    xsize = 1024;
+-    ysize = 768;
++    xsize = 2048;    /* 2x scaling */
++    ysize = 1536;
+     break;
+   case 4:
+-    xsize = 640;
+-    ysize = 200;
++    xsize = 1280;    /* 2x scaling */
++    ysize = 400;
+     break;
+   case 5:
+-    xsize = 640;
+-    ysize = 350;
++    xsize = 1280;    /* 2x scaling */
++    ysize = 700;
+     break;
+   case 6:
+-    xsize = 320;
+-    ysize = 200;
++    xsize = 640;     /* 2x scaling */
++    ysize = 400;
+     break;
+   default:
+-    xsize = 640;
+-    ysize = 480;
++    xsize = 1280;    /* 2x scaling */
++    ysize = 960;
+     break;
+   }
+ 

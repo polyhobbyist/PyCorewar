@@ -51,11 +51,15 @@ docs = [
 include = ["corewar*"]
 
 [tool.black]
-line-length = 88
+line-length = 500
 target-version = ['py311']
 
 [tool.pylint.messages_control]
-disable = ["C0103", "C0111", "R0903"]
+disable = ["C0103", "C0111", "R0903", "C0301"]
+
+[tool.flake8]
+max-line-length = 500
+ignore = ["E501", "W503"]
 
 [tool.mypy]
 python_version = "3.11"
