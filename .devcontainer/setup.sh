@@ -85,7 +85,21 @@ if [ ! -d "pMARS" ]; then
         fi
         cd ../..
     else
-        echo "⚠️  Scaling patch file not found. Building with original display size."
+        echo "⚠️  Scaling patch file not found. Applying manual scaling modifications..."
+        # Manual scaling modifications as fallback
+        sed -i 's/size = 4/size = 8/' pMARS/src/xwindisp.c
+        sed -i 's/MIN_WIDTH.*320/MIN_WIDTH                640/' pMARS/src/xwindisp.c
+        sed -i 's/MIN_HEIGHT.*200/MIN_HEIGHT                400/' pMARS/src/xwindisp.c
+        sed -i 's/xsize = 640;/xsize = 1280;    \/\* 2x scaling \*\//' pMARS/src/xwindisp.c
+        sed -i 's/ysize = 480;/ysize = 960;/' pMARS/src/xwindisp.c
+        sed -i 's/xsize = 800;/xsize = 1600;    \/\* 2x scaling \*\//' pMARS/src/xwindisp.c
+        sed -i 's/ysize = 600;/ysize = 1200;/' pMARS/src/xwindisp.c
+        sed -i 's/xsize = 1024;/xsize = 2048;    \/\* 2x scaling \*\//' pMARS/src/xwindisp.c
+        sed -i 's/ysize = 768;/ysize = 1536;/' pMARS/src/xwindisp.c
+        sed -i 's/xsize = 320;/xsize = 640;     \/\* 2x scaling \*\//' pMARS/src/xwindisp.c
+        sed -i 's/ysize = 200;/ysize = 400;/' pMARS/src/xwindisp.c
+        sed -i 's/ysize = 350;/ysize = 700;/' pMARS/src/xwindisp.c
+        echo "✅ Manual scaling modifications applied!"
     fi
 fi
 

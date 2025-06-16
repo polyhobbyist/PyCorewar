@@ -19,10 +19,10 @@
 			"ppa": true
 		}
 	},
-
 	// Configure tool-specific properties.
 	"customizations": {
-		// Configure properties specific to VS Code.		"vscode": {
+		// Configure properties specific to VS Code.
+		"vscode": {
 			"settings": {
 				"python.defaultInterpreterPath": "/usr/local/python/current/bin/python",
 				"python.linting.enabled": true,
@@ -56,9 +56,8 @@
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
-
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "./.devcontainer/setup.sh",
+	"postCreateCommand": "cd ${containerWorkspaceFolder} && bash ./.devcontainer/setup.sh",
 
 	// Use 'postStartCommand' to run commands after the container is started.
 	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",

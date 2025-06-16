@@ -6,3 +6,6 @@ build/
 **/*.so
 **/*.egg
 **/*.egg-info
+**/pMARS/**
+**/*.zip
+**/pMARS-*.tar.gz
